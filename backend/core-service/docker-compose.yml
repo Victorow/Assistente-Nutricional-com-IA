@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: nutricional-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: nutricional_db
+      POSTGRES_USER: nutricional_user
+      POSTGRES_PASSWORD: nutricional_pass
+      POSTGRES_HOST_AUTH_METHOD: md5
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nutricional_user -d nutricional_db"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Futuro: backend Java
+  backend:
+    build: ./backend/core-service
+    container_name: nutricional-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    profiles:
+      - full-stack
+
+volumes:
+  postgres_data:

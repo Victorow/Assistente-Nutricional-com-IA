@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Assistente Nutricional</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #28a745; }
+        .status { background: #d4edda; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .info { background: #d1ecf1; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .timestamp { color: #666; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 th:text="${message}">Assistente Nutricional</h1>
+        
+        <div class="status">
+            <h3>✅ Status do Sistema</h3>
+            <p th:text="${status}">Sistema funcionando</p>
+        </div>
+        
+        <div class="info">
+            <h3>📊 Informações</h3>
+            <ul>
+                <li><strong>Versão:</strong> Spring Boot 3.3.13</li>
+                <li><strong>Java:</strong> 21 LTS</li>
+                <li><strong>Banco:</strong> PostgreSQL 16</li>
+                <li><strong>Servidor:</strong> Apache Tomcat</li>
+                <li><strong>Arquitetura:</strong> Microsserviços</li>
+            </ul>
+        </div>
+        
+        <div class="timestamp">
+            <p>Última atualização: <span th:text="${timestamp}"></span></p>
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <h3>🔗 Endpoints Disponíveis</h3>
+            <ul>
+                <li><a href="/api/status">GET /api/status</a> - Status da API (JSON)</li>
+                <li><a href="/api/">GET /api/</a> - Página inicial</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
