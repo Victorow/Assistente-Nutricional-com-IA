@@ -205,24 +205,5 @@ curl "http://localhost:8080/api/pacientes/1/dados-lgpd"
 
 ⭐ **Se este projeto te ajudou, dê uma estrela!** ⭐
 
-## 🔧 Estrutura do Projeto
-.
-├── backend/
-│ └── core-service/
-│ ├── src/
-│ │ └── main/
-│ │ ├── java/
-│ │ │ └── com/nutricional/core/
-│ │ │ ├── controller/
-│ │ │ ├── service/
-│ │ │ ├── repository/
-│ │ │ ├── model/
-│ │ │ ├── config/
-│ │ │ └── util/
-│ │ └── resources/
-│ │ └── application.properties
-│ └── pom.xml
-├── docker-compose.yml
-├── .gitignore
-└── README.md
+
 
